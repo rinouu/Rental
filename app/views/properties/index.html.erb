@@ -1,0 +1,26 @@
+<h1>Property list</h1>
+<br>
+<%= link_to 'Post a new property', new_property_path %>
+<br>
+<p><%= notice %></p>
+<table>
+  <tr>
+    <th>Property</th>
+    <th>Rent</th>
+    <th>Address</th>
+    <th>Building age</th>
+    <th>Remarks</th>
+  </tr>
+<% @properties.each do |property| %>
+  <tr>
+    <td><%= property.property %></td>
+    <td><%= property.rent %></td>
+    <td><%= property.address %></td>
+    <td><%= property.building %></td>
+    <td><%= property.remarks %></td>
+    <td><%= link_to 'Show', property_path(property.id) %></td>
+    <td><%= link_to "Edit", edit_property_path(property.id) %></td>
+    <td><%= link_to 'Destroy', property_path(property.id), method: :delete %></td>
+  </tr>
+<% end %>
+</table>

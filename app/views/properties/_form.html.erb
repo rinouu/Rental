@@ -1,0 +1,69 @@
+<%= form_for @property do |f| %>
+  <% if @property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @property.errors.count %>Errors met </h2>
+      <ul>
+      <% @property.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h2>Register property</h2>
+  <div class="property_title">
+    <%= f.label :Property %>
+    <br>
+    <%= f.text_field :property %>
+  </div>
+  <br>
+  <div class="property_title">
+    <%= f.label :Rent %>
+    <br>
+    <%= f.text_field :rent %> RWF
+  </div>
+  <br>
+  <div class="property_title">
+    <%= f.label :Building_Age %>
+    <br>
+    <%= f.text_field :building %> years/years old
+  </div>
+  <br>
+  <div class="property_title">
+    <%= f.label :Address %>
+    <br>
+    <%= f.text_field :address %>
+  </div>
+  <br>
+  <div class="property_title">
+    <%= f.label :Remark %>
+    <br>
+    <%= f.text_field :remarks %>
+  </div>
+
+  <hr>
+  <% n = 0 %>
+  <%= fields_for :railways do |g| %>
+  <h2>Name of railway line<%= n += 1 %></h2>
+  <div class="property_title">
+    <%= g.label :Railway_Name %>
+    <br>
+    <%= g.text_field :railway %>
+  </div>
+  <br>
+  <div class="property_title">
+    <%= g.label :Station_Name %>
+    <br>
+    <%= g.text_field :station %>
+  </div>
+  <br>
+  <div class="property_title">
+    <%= g.label :How_many_minutes_walk %>
+    <br>
+    <%= g.text_field :distance %> min/mins
+  </div>
+  <% end %>
+  <br>
+  <%= f.submit %>
+<% end %>
+<%= link_to "Back to the property list", properties_path %>
