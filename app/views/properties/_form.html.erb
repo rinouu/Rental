@@ -43,7 +43,7 @@
 
   <hr>
   <% n = 0 %>
-  <%= fields_for :railways do |g| %>
+  <%= f.fields_for :railways do |g| %>
   <h2>Name of railway line<%= n += 1 %></h2>
   <div class="property_title">
     <%= g.label :Railway_Name %>
