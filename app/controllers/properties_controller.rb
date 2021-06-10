@@ -6,7 +6,7 @@ class PropertiesController < ApplicationController
 
   def new
     @property = Property.new
-    3.times { @property.railways.build }
+    1.times { @property.railways.build }
   end
 
   def create
@@ -34,6 +34,7 @@ end
   end
 
   def edit
+    @property.railways.build
   end
 
   def destroy
