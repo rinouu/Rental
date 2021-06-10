@@ -1,4 +1,11 @@
 <h1>Property details</h1>
+<% n = 0 %>
+<% @property.railways.each do |x| %>
+	<% if x.railway.present? %>
+		<% n += 1 %>
+	<% end %>
+<% end %>
+<h3>This property has <%=n %> nearest station(s)</h3>
 <strong>Property: </strong> <%= @property.property %><br><br>
 <strong>Rent: </strong> <%= @property.rent %><br><br>
 <strong>Address: </strong> <%= @property.address %><br><br>

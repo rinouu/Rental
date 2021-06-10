@@ -1,4 +1,11 @@
 <%= form_for @property do |f| %>
+  <% v = 0 %>
+  <% @property.railways.each do |x| %>
+    <% if x.railway.present? %>
+      <% v += 1 %>
+    <% end %>
+  <% end %>
+  <h3>This property has <%=v %> nearest station(s)</h3>
   <% if @property.errors.any? %>
     <div id="error_explanation">
       <h2><%= @property.errors.count %>Errors met </h2>
