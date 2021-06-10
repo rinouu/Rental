@@ -1,1 +1,28 @@
-<h1>Screen details</h1>
+<h1>Property details</h1>
+<strong>Property: </strong> <%= @property.property %><br><br>
+<strong>Rent: </strong> <%= @property.rent %><br><br>
+<strong>Address: </strong> <%= @property.address %><br><br>
+<strong>Building age: </strong> <%= @property.building %><br><br>
+<strong>Remarks: </strong> <%= @property.remarks %>
+<hr>
+
+<div>
+  <% n = 0 %>
+  <% @property.railways.each do |railway| %>
+  <% if railway.railway.present? %>
+    <h2>Nearest railway<%= n += 1 %></h2>
+      <p>
+        <strong>Name of Railway:</strong><%= railway.railway %>
+      </p>
+      <p>
+        <strong>Station name:</strong><%= railway.station %>
+      </p>
+      <p>
+        <strong>How many minutes walk:</strong><%= railway.distance %> min/mins
+      </p>
+     <% end %>
+  <% end %>
+</div>
+
+<%= link_to 'edit', edit_property_path %> |
+<%= link_to 'back', properties_path %>
